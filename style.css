@@ -1,0 +1,183 @@
+*  { /*todos os itens*/
+    margin: 0; /*tirar os prenechimentos internos das caixas*/
+    padding: 0;
+    box-sizing: border-box; /*fixar o tamanho da caixa*/
+ }
+ 
+ /*declarando a variavel na raiz*//*cores*/
+ :root {
+     --card-primary-color: #f7dd43; /*pode usar qualquer nome começando com --*/
+     --card-title-border-color:#746615;
+     --card-bg-color: #1d1c19;
+     --bg-overlay:url(./imgsvg/bg-overlay-yellou.svg)
+ }
+ 
+ body.blue { /*quando mudar o body para azul*/ 
+     --card-primary-color: #338af3; /*pode usar qualquer nome começando com --*/
+     --card-title-border-color:#338af3;
+     --card-bg-color: #202024; /*background*/
+     --bg-overlay:url(./imgsvg/bg-overlay-blue.svg)
+ }
+ 
+ body.green { /*quando for body green*/
+     --card-primary-color: #047c3f; /*pode usar qualquer nome começando com --*/
+     --card-title-border-color:#047c3f;
+     --card-bg-color: #1a1f1b; /*background*/
+     --bg-overlay:url(./imgsvg/bg-overlay-green.svg)
+ }
+ 
+ ul {
+     list-style: none;
+ }
+ 
+ body {
+     background-color: #121214; 
+     background-image: var(--bg-overlay);
+     background-position: top center; /*ficar no centro*/
+     background-repeat: repeat;/*não repetir a imagem*/
+     background-size: cover; /*preencher a tela*/
+     
+ }
+ 
+ body * { /*font do body * todos os itens */
+     font-family: 'Roboto', sans-serif;
+ }
+ 
+ #app {
+    /* border: 1px solid red;*/
+     width: fit-content;
+     margin: 52px auto;
+ }
+ 
+ header {
+     margin-bottom: 63px;
+     text-align: center; /*centralizar o header*/
+ }
+ 
+ #cards { /*id da tag main no html*/
+     display: flex; /*liberar flexibilidade*/
+     flex-direction: column; /*botar em coluna*/
+     gap: 32px;/*colocar espaço em 32px nas colunas*/
+ }
+ 
+ .card {
+     /*border: 1px solid red;*/
+     padding: 32px 23px; /*preencimento interno*/
+     text-align: center; /*texto no centro*/
+     background: var(--card-bg-color); /*cor de fundo*/
+     border-bottom: 2px solid var(--card-primary-color); /*linha de baixo 2px amarela*//*usando a variavel color*/
+     border-radius: 6px; /*aredondamento da borda*/
+ }
+ 
+ .card h2 {
+     display:flex; /*desbloquear fexibilidade do display*/
+     gap: 16px; /*espaçamento no meio*/
+     justify-content: center;
+     align-items: center; /*alinhar todos a linha central*/
+     
+     
+     padding: 8px 16px; /*preenchimento interno*/
+     border: 1px solid var(--card-title-border-color); /*cor da borda*/
+     border-radius: 6px; /*curva as bordas*/
+     
+     /* width: fit-content; /*largura flexivel*/
+     margin-inline: auto; /**/
+     margin-bottom: 53px;/**/
+ 
+     color: #f7dd43;
+ }
+ 
+ .card h2 span {
+     color:#ffffff; /*cor*/
+     font-size: 14px;/*tamanho da font*/
+     text-transform: uppercase; /*transforma em caixa alta*/
+ }
+ 
+ .card ul {
+     display: flex; /**/
+     flex-direction: column; /*colocar um abaixo do outro*/
+     gap: 24px; /*espamento entre os icons*/
+ 
+     width: 270px; /*tamanho dos icon*/
+ }
+ 
+ .card ul li {
+     display: flex; /**/
+     align-items: center; /*todos alinhados*/
+     justify-content: space-between; /*espaço entre os elemntos*/
+ } 
+ .card ul li + li {/*li que anterior a ele tenha um li*/
+     padding-top: 24px;
+     border-top: 1px solid #323234; /*linha solida*/ 
+ }
+ 
+ .card ul li strong {
+     font-weight: 900; /*negrito*/
+     font-size: 36px; /*tamanho da font*/
+     line-height: 125%; /*altura da linha*/
+     color: #e1e1e6; /*cor*/
+ }
+ 
+ /*transição abaixo */
+ 
+ .card h2:hover,
+ .card ul li strong:hover, /*virgula vai agrupar os dois */
+ .card ul li img:hover {   /*para receber a mesma coisa*/
+     /*houver vai ser interpretado quando passar o mouse em cima */
+     transform: scale(1.1); /*transformação de escala de 1.1*/
+ }
+ 
+ .card h2,
+ .card ul li strong,
+ .card ul li img {
+     transition: transform 0.3s; /*tempo da transição*/
+ }
+ 
+ /*criar animação abaixo*/
+ 
+ /*
+ .card:nth-child(1) { /*card 1 e fazer animação de 1s*
+     animation-delay: 1s;
+ }
+ 
+ .card:nth-child(2) { /*card 2 e fazer animação de 2s*
+     animation-delay: 2s;
+ }
+ 
+ .card:nth-child(3) { /*card 3 e fazer animação de 3s*
+     animation-delay: 3s;
+ }
+ */
+ 
+ .card {
+     opacity: 0; /*começar com opacidade 0, sem nada*/
+     animation: apper .7s forwards; /*animar a regra apper .7s e o forwards vai manter a animação*/
+ 
+ }
+ 
+ /*regras @ abaixo*/
+ 
+ @keyframes apper {
+     /*animação de 0 a 100% */
+     0%{
+         opacity: 0; /*opacidade é 0 completamente escuro*/
+     }
+     100%{
+         opacity: 1; /*opacidade 1 é completamente aparecido a tela*/
+     }
+ }
+ 
+ @media (min-width: 700px) /*se a largura maxima for 700 aplica a regra abaixo*/{
+     #cards {
+         max-width: 1000px; /*largura maxima da caixa cards*/
+         flex-direction: row; /*arrumar o direcionamento para um ao lado do outro*/
+         /*flex-wrap: wrap; /*wrap manter tudo dentro do 680px*/
+     }
+ 
+ }
+ 
+ 
+ 
+ 
+ 
+ 
